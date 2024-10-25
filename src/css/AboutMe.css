@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-name {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+}
+
+
+.weaContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: 20px;
+}
+
+.weaImage {
+  width: 60px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.weaText {
+  margin: 0 10px;
+}
