@@ -10,3 +10,4 @@ Here are two screenshots from the project:
 
 ![Result Image 1](./public/AboutMe.png)
 
+![Result Image 2](./public/hometown.png)
