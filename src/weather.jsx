@@ -7,6 +7,7 @@ function GetWeather(){
     const lon = 123;
     const [metric, setMetric] = useState('℃');
     const [temp, setTemp] = useState(10);
+    const [weahter, setWeahter] = useState('Coulds');
     const [pic, setPic] = useState('sunny.png');
 
     useEffect(() => {
@@ -15,13 +16,15 @@ function GetWeather(){
             .then(json => 
                 {
                     setTemp(json.main.temp); 
+
+                    if(json.main.temp <= 10){setPic('cold.png');}
+                    else if(json.main.temp > 20) {setPic('sunny.png');}
+                    else {setPic('mild.png');}
+
                     if(metric === '℉'){
                         setTemp(t => { return (t * 1.8 + 32).toFixed(2); })
                     }
-                    let wea = json.weather[0].main;
-                    if(wea === 'Clouds'){setPic('mild.png');}
-                    else if(wea === 'Rain' || wea === 'Snow' ) {setPic('cold.png');}
-                    else {setPic('sunny.png');}
+                    setWeahter(json.weather[0].main);
                 })
             .catch(error => console.error("Error fetching weather data:", error));
     }, [metric]);
@@ -36,11 +39,12 @@ function GetWeather(){
     }
 
     return(
-        
+
         <div>
             <div className="weaContainer">
+                <div>Weather is {weahter}. </div>
+                <div className="weaText">Temperature is {temp} {metric}.</div>
                 <img src={pic} alt="logo" className="weaImage" />
-                <div className="weaText">temperature is {temp} {metric}</div>
                 <button onClick={changeState}>Change metric</button>
             </div>
         </div>);
